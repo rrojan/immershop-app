@@ -21,7 +21,11 @@
         <li><a href="contact.html">Ladies Dresses</a></li>
       </ul>
     </li>
-    <li class="scroll-to-section"><a href="#explore"><i class="fa-solid fa-user"></i> Log In</a></li>
+    <li class="scroll-to-section">
+      <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;Login / Signup
+      <% end %>
+    </li>
   </ul>
   <a class="menu-trigger">
     <span>Menu</span>
