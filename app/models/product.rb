@@ -6,6 +6,7 @@
 #  image_link  :string
 #  price       :string
 #  title       :string           not null
+#  try_on_link :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :bigint           not null
