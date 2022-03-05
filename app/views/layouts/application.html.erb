@@ -2,11 +2,45 @@
 <html>
   <head>
     <title>ImmershopApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %> 
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> 
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+      crossorigin="anonymous"
+    ></script>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -15,4 +49,245 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+
+  <!-- jQuery -->
+  <!-- <script src="assets/js/jquery-2.1.0.min.js"></script> -->
+
+  <!-- Bootstrap -->
+  <!-- <script src="assets/js/popper.js"></script> -->
+  <!-- <script src="assets/js/bootstrap.min.js"></script> -->
+
+  <!-- Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.1/jquery.ui.accordion.min.js"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/1.0.10/datepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/0.1.1/scrollReveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+  <!-- Global Init -->
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    $(function () {
+      var selectedClass = "";
+      $("p").click(function () {
+        selectedClass = $(this).attr("data-rel");
+        $("#portfolio").fadeTo(50, 0.1);
+        $("#portfolio div")
+          .not("." + selectedClass)
+          .fadeOut();
+        setTimeout(function () {
+          $("." + selectedClass).fadeIn();
+          $("#portfolio").fadeTo(50, 1);
+        }, 500);
+      });
+    });
+
+    (function ($) {
+      "use strict";
+      $(".owl-men-item").owlCarousel({
+        items: 5,
+        loop: true,
+        dots: true,
+        nav: true,
+        margin: 30,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+
+      $(".owl-women-item").owlCarousel({
+        items: 5,
+        loop: true,
+        dots: true,
+        nav: true,
+        margin: 30,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+
+      $(".owl-kid-item").owlCarousel({
+        items: 5,
+        loop: true,
+        dots: true,
+        nav: true,
+        margin: 30,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          },
+        },
+      });
+
+      $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        var box = $("#top").height();
+        var header = $("header").height();
+
+        if (scroll >= box - header) {
+          $("header").addClass("background-header");
+        } else {
+          $("header").removeClass("background-header");
+        }
+      });
+
+      // Window Resize Mobile Menu Fix
+      mobileNav();
+
+      // Scroll animation init
+      window.sr = new scrollReveal();
+
+      // Menu Dropdown Toggle
+      if ($(".menu-trigger").length) {
+        $(".menu-trigger").on("click", function () {
+          $(this).toggleClass("active");
+          $(".header-area .nav").slideToggle(200);
+        });
+      }
+
+      // Menu elevator animation
+      $(".scroll-to-section a[href*=\\#]:not([href=\\#])").on(
+        "click",
+        function () {
+          if (
+            location.pathname.replace(/^\//, "") ==
+              this.pathname.replace(/^\//, "") &&
+            location.hostname == this.hostname
+          ) {
+            var target = $(this.hash);
+            target = target.length
+              ? target
+              : $("[name=" + this.hash.slice(1) + "]");
+            if (target.length) {
+              var width = $(window).width();
+              if (width < 991) {
+                $(".menu-trigger").removeClass("active");
+                $(".header-area .nav").slideUp(200);
+              }
+              $("html,body").animate(
+                {
+                  scrollTop: target.offset().top - 80,
+                },
+                700
+              );
+              return false;
+            }
+          }
+        }
+      );
+
+      $(document).ready(function () {
+        $(document).on("scroll", onScroll);
+
+        //smoothscroll
+        $('.scroll-to-section a[href^="#"]').on("click", function (e) {
+          e.preventDefault();
+          $(document).off("scroll");
+
+          $(".scroll-to-section a").each(function () {
+            $(this).removeClass("active");
+          });
+          $(this).addClass("active");
+
+          var target = this.hash,
+            menu = target;
+          var target = $(this.hash);
+          $("html, body")
+            .stop()
+            .animate(
+              {
+                scrollTop: target.offset().top - 79,
+              },
+              500,
+              "swing",
+              function () {
+                window.location.hash = target;
+                $(document).on("scroll", onScroll);
+              }
+            );
+        });
+      });
+
+      function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $(".nav a").each(function () {
+          var currLink = $(this);
+          var refElement = $(currLink.attr("href"));
+          if (
+            refElement.position().top <= scrollPos &&
+            refElement.position().top + refElement.height() > scrollPos
+          ) {
+            $(".nav ul li a").removeClass("active");
+            currLink.addClass("active");
+          } else {
+            currLink.removeClass("active");
+          }
+        });
+      }
+
+      // Page loading animation
+      $(window).on("load", function () {
+        if ($(".cover").length) {
+          $(".cover").parallax({
+            imageSrc: $(".cover").data("image"),
+            zIndex: "1",
+          });
+        }
+
+        $("#preloader").animate(
+          {
+            opacity: "0",
+          },
+          600,
+          function () {
+            setTimeout(function () {
+              $("#preloader").css("visibility", "hidden").fadeOut();
+            }, 300);
+          }
+        );
+      });
+
+      // Window Resize Mobile Menu Fix
+      $(window).on("resize", function () {
+        mobileNav();
+      });
+
+      // Window Resize Mobile Menu Fix
+      function mobileNav() {
+        var width = $(window).width();
+        $(".submenu").on("click", function () {
+          if (width < 767) {
+            $(".submenu ul").removeClass("active");
+            $(this).find("ul").toggleClass("active");
+          }
+        });
+      }
+    })(window.jQuery);
+  </script>
 </html>
