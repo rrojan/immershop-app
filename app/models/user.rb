@@ -34,4 +34,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
+
+  has_many :cart_items, class_name: 'Product', through: :carts
 end

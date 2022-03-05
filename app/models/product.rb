@@ -3,6 +3,7 @@
 # Table name: products
 #
 #  id          :bigint           not null, primary key
+#  image_link  :string
 #  price       :string
 #  title       :string           not null
 #  created_at  :datetime         not null

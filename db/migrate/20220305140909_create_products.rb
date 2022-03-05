@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :title, null: false
       t.references :category, null: false, foreign_key: true
       t.string :price
+      t.string :image_link
 
       t.timestamps
     end
