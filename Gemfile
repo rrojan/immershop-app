@@ -63,6 +63,13 @@ group :development do
   gem 'rubocop', '~> 1.25', '>= 1.25.1'
   gem 'rubocop-rails', '~> 2.13', '>= 2.13.2'
 
+  # Annotate models
+  gem 'annotate', '~> 3.2'
+
+  # Better errors
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
