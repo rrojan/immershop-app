@@ -40,9 +40,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
 
-  has_many :cart_items, class_name: 'Product', through: :carts
+  has_one :cart
+  has_many :cart_items, through: :cart
+
+  after_create :create_empty_cart
 
   def username
     email[0...email.index('@')]
+  end
+
+  def cart_products
+    Product.where(id: cart_items.pluck(:product_id))
+  end
+
+  private
+
+  def create_empty_cart
+    Cart.create(user: self)
   end
 end
