@@ -1,0 +1,6 @@
+.product-card #product-image {
+  max-width: 90%;
+  object-fit: contain;
+  padding: 16px;
+  margin-top: 24px;
+}
