@@ -8,11 +8,11 @@ class ProductsController < ApplicationController
   def show; end
 
   def add_to_cart
-    create_user_cart_item(params[:id].to_i, params[:quantity])
+    AddToCartService.call(current_user, params[:id].to_i, params[:quantity])
   end
 
   def buy
-    create_user_cart_item(params[:id].to_i, params[:quantity])
+    AddToCartService.call(current_user, params[:id].to_i, params[:quantity])
     redirect_to cart_path
   end
 
@@ -20,9 +20,5 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id].to_i)
-  end
-
-  def create_user_cart_item(id, quant)
-    current_user.cart.cart_items.create(product_id: id, quantity: quant)
   end
 end
