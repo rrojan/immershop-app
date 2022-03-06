@@ -1,6 +1,9 @@
-.product-card #product-image {
+.product-card .product-image {
   max-width: 90%;
   object-fit: contain;
   padding: 16px;
   margin-top: 24px;
+}
+.product-card .product-image:hover {
+  scale: 1.5;
 }

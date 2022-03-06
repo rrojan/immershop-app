@@ -65,6 +65,7 @@
                 <select
                   class="form-control form-control-sm"
                   style="width: 70px"
+                  id="quantity"
                 >
                   <option>1</option>
                   <option>2</option>
@@ -121,19 +122,18 @@
           <%= link_to try_on_path(product_id: @product.id), target: :_blank, class: "btn btn-outline-dark" do %>
             <i class="fa-solid fa-camcorder"></i> &nbsp;&nbsp;Try On </a>
           <% end %>
-          <a href="#" class="btn btn-outline-dark" style="font-style: normal;">
+          <%= link_to 'http://localhost:8080/web-ar.html', class: 'btn btn-outline-dark', style: 'font-style: normal;', target: :_blank do %>
             <i class="fa-solid fa-cube"></i>
             &nbsp;&nbsp;&nbsp;3D View
-          </a>
+          <% end %>
         </div>
         <div class="container d-flex">
-          <a href="#" class="btn btn-outline-success text-uppercase w-50 mr-1"> Buy now </a>
-          <a href="#" class="btn btn-outline-dark text-uppercase w-50 ml-1">
+          <a href="#" id="buy" data-id=<%= @product.id %> class="btn btn-outline-success text-uppercase w-50 mr-1"> Buy now </a>
+          <a href="#" id="add-to-cart" data-id=<%= @product.id %> class="btn btn-outline-dark text-uppercase w-50 ml-1">
             <i class="fas fa-shopping-cart"></i> &nbsp;&nbsp;Add to cart
           </a>
         </div>
       </article>
-      <!-- card-body.// -->
     </aside>
     <!-- col.// -->
   </div>
@@ -141,3 +141,21 @@
 </div>
 
 <%= render 'shared/footer' %>
+
+<script>
+  document.getElementById('add-to-cart').addEventListener('click', e => {
+    const http = new XMLHttpRequest()
+    const productId = e.target.getAttribute('data-id')
+    const quantity = document.getElementById('quantity').value
+    const url = `/products/${productId}/add_to_cart?quantity=${quantity}`
+    http.open('GET', url)
+    http.send()
+  })
+  document.getElementById('buy').addEventListener('click', e => {
+    const http = new XMLHttpRequest()
+    const productId = e.target.getAttribute('data-id')
+    const quantity = document.getElementById('quantity').value
+    const url = `/products/${productId}/buy?quantity=${quantity}`
+    window.location.href = url
+  })
+</script>
