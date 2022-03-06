@@ -38,14 +38,17 @@
                       </li>
                     </ul>
                   </div>
+                  <%= link_to product_path(id: item.id) do %>
                   <% if item.image_link.present? %>
                     <%= image_tag item.image_link, class: 'item-image' %>
                   <% else %>
                     <%= image_tag 'banner1.jpg', class: 'item-image' %>
                   <% end %>
+                  <% end %> 
                 </div>
                 <div class="down-content">
-                  <h4><%= item.title %></h4>
+                  <h4>
+                  <%= item.title %></h4>
                   <span>$<%= item.price %></span>
                   <ul class="stars">
                     <li><i class="fa fa-star"></i></li>
