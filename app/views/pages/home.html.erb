@@ -2,9 +2,18 @@
 
 <%= render 'pages/banner' %>
 
-<%= render 'pages/necklaces' %>
-<%= render 'pages/sun_glasses' %>
-<%= render 'pages/earrings' %>
+<%= render 'pages/items',
+           title: 'Necklaces',
+           description: 'Flaunt your style with our premium design necklaces',
+           items: @necklaces %>
+<%= render 'pages/items',
+           title: 'Sunglasses',
+           description: 'Flaunt your style with our premium design necklaces',
+           items: @necklaces %>
+<%= render 'pages/items',
+           title: 'Earrings',
+           description: 'Flaunt your style with our premium design necklaces',
+           items: @necklaces %>
 
 <%= render 'pages/try_on' %>
 
