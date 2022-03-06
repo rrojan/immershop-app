@@ -25,11 +25,28 @@
                 <li><a href="contact.html">Ladies Dresses</a></li>
               </ul>
             </li>
-            <li class="scroll-to-section">
-              <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;Login / Signup
-              <% end %>
-            </li>
+              <% if user_signed_in? %>
+              <li class="submenu">
+                <a href="javascript:;" style="text-transform: lowercase">
+                  <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;
+                  <%= current_user.username %>
+                  </a>
+                <ul>
+                  <li><a href="about.html">Profile</a></li>
+                  <li><a href="products.html">Cart</a></li>
+                  <li>
+                    <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-dark my-1 w-100' %>
+                  </li>
+                </ul>
+              </li>
+              <% else %>
+                  <li class="scroll-to-section">
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;  
+                    Login / Signup
+                  <% end %>
+                  </li>
+            <% end %>
           </ul>
           <a class="menu-trigger">
             <span>Menu</span>
