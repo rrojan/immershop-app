@@ -1,0 +1,9 @@
+<span style="font-family: monospace;" id="message">Closing AR try-on view...</span>
+<script>
+  function displayExitMessage() {
+    document.getElementById('message').innerText += '\nExiting tab...'
+    // Totally unnecessary but it looks cool so its staying.
+    setTimeout(close, 500)
+  }
+  setTimeout(displayExitMessage, 1000)
+</script>

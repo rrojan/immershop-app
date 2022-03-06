@@ -23,4 +23,8 @@
 #
 class Product < ApplicationRecord
   belongs_to :category
+
+  scope :necklaces, -> { where(category: Category.find_by_title('Necklace')) }
+  scope :sunglasses, -> { where(category: Category.find_by_title('Sunglass')) }
+  scope :earrings, -> { where(category: Category.find_by_title('Earring')) }
 end
