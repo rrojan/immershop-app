@@ -22,14 +22,14 @@
                   <div class="hover-content">
                     <ul>
                       <li>
-                        <a href="single-product.html"
-                          ><i class="fa fa-eye"></i
-                        ></a>
+                        <%= link_to try_on_path(product_id: item.id), target: :_blank do %>
+                          <i class="fa fa-eye"></i>
+                        <% end %>
                       </li>
                       <li>
-                        <a href="single-product.html"
-                          ><i class="fa fa-star"></i
-                        ></a>
+                      <%= link_to root_path do %>
+                        <i class="fa fa-star"></i>
+                      <% end %>
                       </li>
                       <li>
                         <a href="single-product.html"
