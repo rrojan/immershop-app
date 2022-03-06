@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -29,6 +31,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  validates :email, format: { with: Devise.email_regexp }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -36,4 +40,8 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable
 
   has_many :cart_items, class_name: 'Product', through: :carts
+
+  def username
+    email[0...email.index('@')]
+  end
 end
