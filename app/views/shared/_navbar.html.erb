@@ -1,0 +1,59 @@
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <%= link_to image_tag('logo.png'), root_path, class: 'logo' %>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section">
+              <a href="#top" class="active">Home</a>
+            </li>
+            <li class="scroll-to-section"><a href="#men">Necklaces</a></li>
+            <li class="scroll-to-section"><a href="#women">Sunglasses</a></li>
+            <li class="scroll-to-section"><a href="#kids">Earrings</a></li>
+            <li class="submenu">
+              <a href="javascript:;">All Products</a>
+              <ul>
+                <li><a href="about.html">Necklaces</a></li>
+                <li><a href="products.html">Sunglasses</a></li>
+                <li><a href="single-product.html">Earrings</a></li>
+                <li><a href="contact.html">Tiaras</a></li>
+                <li><a href="contact.html">Tops</a></li>
+                <li><a href="contact.html">Ladies Dresses</a></li>
+              </ul>
+            </li>
+              <% if user_signed_in? %>
+              <li class="submenu">
+                <a href="javascript:;" style="text-transform: lowercase">
+                  <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;
+                  <%= current_user.username %>
+                  </a>
+                <ul>
+                  <li><a href="about.html">Profile</a></li>
+                  <li><a href="products.html">Cart</a></li>
+                  <li>
+                    <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-dark my-1 w-100' %>
+                  </li>
+                </ul>
+              </li>
+              <% else %>
+                  <li class="scroll-to-section">
+                  <%= link_to new_user_session_path do %>
+                    <i class="fa-solid fa-user" style="font-style: normal;"></i>&nbsp;&nbsp;  
+                    Login / Signup
+                  <% end %>
+                  </li>
+            <% end %>
+          </ul>
+          <a class="menu-trigger">
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
