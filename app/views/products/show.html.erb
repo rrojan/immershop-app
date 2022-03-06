@@ -121,10 +121,10 @@
           <%= link_to try_on_path(product_id: @product.id), target: :_blank, class: "btn btn-outline-dark" do %>
             <i class="fa-solid fa-camcorder"></i> &nbsp;&nbsp;Try On </a>
           <% end %>
-          <a href="#" class="btn btn-outline-dark" style="font-style: normal;">
+          <%= link_to 'http://localhost:8080/web-ar.html', class: 'btn btn-outline-dark', style: 'font-style: normal;', target: :_blank do %>
             <i class="fa-solid fa-cube"></i>
             &nbsp;&nbsp;&nbsp;3D View
-          </a>
+          <% end %>
         </div>
         <div class="container d-flex">
           <a href="#" class="btn btn-outline-success text-uppercase w-50 mr-1"> Buy now </a>
