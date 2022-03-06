@@ -1,3 +1,8 @@
 .down-content h4 {
   width: 268px;
 }
+
+.item-image {
+  height: 220px;
+  object-fit: contain;
+}

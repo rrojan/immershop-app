@@ -1,0 +1,27 @@
+footer .banner {
+  color: white;
+}
+
+footer .title {
+  font-size: 32px;
+  margin-bottom: 0px;
+}
+
+footer .description {
+  font-size: 12px;
+  padding-bottom: 22px;
+}
+
+.main-banner h4 {
+    font-size: 32px;
+}
+
+.main-banner .immershop-em {
+  padding: 10px 10px;
+  /* background-color: #000000; */
+  color: #F8C8DC;
+
+  font-family: 'Shippori Antique B1', sans-serif;
+  font-size: 1.2em;
+  transform: skewY(20deg);
+}
