@@ -25,3 +25,39 @@ footer .description {
   font-size: 1.2em;
   transform: skewY(20deg);
 }
+
+#head-text {
+  animation-name: flyIn;
+  animation-duration: 2s;
+  transition: ease-in-out;
+}
+
+#head-desc {
+  animation-name: flyIn2;
+  animation-duration: 2s;
+  transition: ease-in-out;
+}
+
+@keyframes flyIn {
+  0% {
+    position: relative;
+    right: -120vw;
+  }
+
+  100% {
+    position: relative;
+    right: 0px;
+  }
+}
+
+@keyframes flyIn2 {
+  0% {
+    position: relative;
+    left: -120vw;
+  }
+
+  100% {
+    position: relative;
+    left: 0px;
+  }
+}
